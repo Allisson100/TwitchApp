@@ -1,9 +1,12 @@
+import Home from './pages/Home';
 import './reset.css'
 
 function App() {
   return (
     <div>
-      <h1>TESTE</h1>
+      <Home>
+        
+      </Home>
     </div>
   );
 }
