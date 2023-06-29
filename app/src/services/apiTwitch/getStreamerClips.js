@@ -1,7 +1,7 @@
 import { getTwitchAuthorization } from './getTwitchAuthorization'
 import { getStreamerInfo } from './getStreamerInfo'
 
-export async function getStreamerClips () {
+export async function getStreamerClips (channelName) {
 
     let { access_token, token_type } = await getTwitchAuthorization()
 
@@ -15,7 +15,12 @@ export async function getStreamerClips () {
         "Client-Id": 'ec5tshbkdsf449ra5mw24rviljcrcy',
     };
 
-    const channel = await getStreamerInfo()
+    const channel = await getStreamerInfo(channelName)
+
+    if (channel.error || channel.data.length === 0) {
+        return 'error'
+    }
+
     const idChannel = channel.data[0].id
 
     const endpointClips = `https://api.twitch.tv/helix/clips?broadcaster_id=${idChannel}`

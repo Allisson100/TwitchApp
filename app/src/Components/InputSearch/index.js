@@ -14,6 +14,8 @@ function InputSearch ({ getFinalInputValue }) {
         getFinalInputValue(input)
     }
 
+    
+
     return(
         <div className={styles.inputContainer}>
             <input 
