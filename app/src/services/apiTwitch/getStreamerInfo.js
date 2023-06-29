@@ -1,10 +1,10 @@
 import { getTwitchAuthorization } from './getTwitchAuthorization'
 
-export async function getStreamerInfo () {
+export async function getStreamerInfo (streamerChannelName) {
 
     let { access_token, token_type } = await getTwitchAuthorization()
 
-    const endpoint = `https://api.twitch.tv/helix/users?login=alanzoka`
+    const endpoint = `https://api.twitch.tv/helix/users?login=${streamerChannelName}`
 
     // Primeira letra maiúscula
     token_type = token_type[0].toUpperCase() + token_type.substring(1)
