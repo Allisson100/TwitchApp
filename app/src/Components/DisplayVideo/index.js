@@ -2,8 +2,8 @@ import styles from './styles.module.css'
 
 import { getStreamerClips } from '../../services/apiTwitch/getStreamerClips'
 
+import {useChannelName} from '../../services/store/channelNameStore'
 
-import useChannelName from '../../services/store/channelNameStore'
 import { useEffect, useState } from 'react'
 
 function DisplayVideo () {
@@ -13,6 +13,9 @@ function DisplayVideo () {
     const [clips , setClips] = useState()
     const [url , setUrl] = useState('')
     const [flag , setFlag] = useState(0)
+
+
+    console.log(clips);
 
     useEffect(() => {
 
@@ -48,16 +51,22 @@ function DisplayVideo () {
         }
     }
 
+    console.log(channelName.length);
+
     return (
         <div className={styles.dsiplayVideoContainer}>
 
             <div className={styles.iframeContainer}>
-                {url !== '' &&
+                {url !== '' ?
                     <iframe 
                         title='Clip from twitch' 
                         src={`${url}&parent=localhost&parent=localhost&autoplay=true`}
                         className={styles.iframe}
-                    ></iframe>  
+                    ></iframe> : <h4 
+                        style={(channelName.length === 0) ? {display: 'none'} : {display: 'block'}}
+                    >
+                        Este Usuário não faz Live Stream!!
+                    </h4> 
                 }               
             </div>
 

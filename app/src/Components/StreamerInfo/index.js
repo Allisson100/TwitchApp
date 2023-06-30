@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Error from '../Error'
 import styles from './styles.module.css'
 
+
 function StreamerInfo ({ info }) {
 
     const [flag , setFlag] = useState(0)
@@ -14,6 +15,12 @@ function StreamerInfo ({ info }) {
     }, [info])
 
     const error = info.error || ''
+
+    if(info.data[0].description === '') {
+        console.log('descrição vazia');
+    }
+
+    console.log(info.data);
 
     return (
         
@@ -32,7 +39,15 @@ function StreamerInfo ({ info }) {
                         <div className={styles.infoContainer}>
                             <h3>{info.data && info.data[0].display_name}</h3>
                             <img src={info.data &&  info.data[0].profile_image_url} alt="Streamer profile" />
-                            <h4>{info.data &&  info.data[0].description}</h4>
+
+                            <h4 
+                                style={(info.data && info.data[0].description === '') ? {display: 'none'} : {display: 'block'}}
+                            >
+                                {info.data &&  info.data[0].description}
+                            </h4>
+
+
+                            {(info.data && info.data[0].description === '') && <h4>Esse usuário não possui descrição</h4>}
                         </div>
                     )}
                 </>
