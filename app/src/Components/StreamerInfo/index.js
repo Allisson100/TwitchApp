@@ -16,12 +16,6 @@ function StreamerInfo ({ info }) {
 
     const error = info.error || ''
 
-    if(info.data[0].description === '') {
-        console.log('descrição vazia');
-    }
-
-    console.log(info.data);
-
     return (
         
         <div className={styles.streamerInfoContainer}>

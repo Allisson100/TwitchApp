@@ -14,9 +14,6 @@ function DisplayVideo () {
     const [url , setUrl] = useState('')
     const [flag , setFlag] = useState(0)
 
-
-    console.log(clips);
-
     useEffect(() => {
 
         const getClips = async () => {
@@ -50,8 +47,6 @@ function DisplayVideo () {
             setFlag((oldFlag) => oldFlag - 1)
         }
     }
-
-    console.log(channelName.length);
 
     return (
         <div className={styles.dsiplayVideoContainer}>
