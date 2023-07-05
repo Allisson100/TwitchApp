@@ -26,6 +26,7 @@ export async function getStreamerClips (channelName) {
     const idChannel = channel.data[0].id
 
     const endpointClips = `https://api.twitch.tv/helix/clips?broadcaster_id=${idChannel}&first=20&started_at=${clipsDate}T00:00:00Z&sort=views`
+    
 
     const fetchClips = await fetch(endpointClips, {headers})
     const clips = await fetchClips.json()
