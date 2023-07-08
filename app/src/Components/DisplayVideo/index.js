@@ -57,8 +57,9 @@ function DisplayVideo () {
                 {url !== '' ?
                     <iframe 
                         title='Clip from twitch' 
-                        src={`${url}&parent=app-theta-sooty.vercel.app/&parent=app-theta-sooty.vercel.app/&autoplay=true`}
+                        src={`${url}&parent=app-theta-sooty.vercel.app`}
                         className={styles.iframe}
+                        // &autoplay=true
                     ></iframe> : <h4 
                         style={(channelName.length === 0) ? {display: 'none'} : {display: 'block'}}
                     >
