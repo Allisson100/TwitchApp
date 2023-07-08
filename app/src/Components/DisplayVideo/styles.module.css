@@ -71,3 +71,35 @@
 .buttonsContainer button:last-child img {
     transform: rotate(180deg);
 }
+
+@media screen and (min-width: 653px) and (max-width: 1085px){
+    .dsiplayVideoContainer {
+        width: 100%;
+        gap: 1rem;
+        height: auto;
+    }
+
+    .iframeContainer  {
+        height: 21.875rem;
+    }
+
+    .buttonsContainer {
+        height: 50px;
+    }
+}
+
+@media screen and (max-width: 652px){
+    .dsiplayVideoContainer {
+        width: 100%;
+        gap: 1rem;
+        height: auto;
+    }
+
+    .iframeContainer  {
+        height: 21.875rem;
+    }
+
+    .buttonsContainer {
+        height: 50px;
+    }
+}

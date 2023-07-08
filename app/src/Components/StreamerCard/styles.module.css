@@ -5,3 +5,8 @@
     border-radius: 1rem;
 }
 
+@media screen and (max-width: 1085px){
+    .streamerCardContainer {
+        display: none;
+    }
+}

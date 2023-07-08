@@ -24,3 +24,9 @@
 .inputContainer img:active {
     transform: scale(0.95);
 }
+
+@media screen and (max-width: 1085px){
+    .inputContainer {
+        height: 100%;
+    }
+}
