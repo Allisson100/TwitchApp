@@ -31,11 +31,12 @@ export async function getStreamerClips (channelName) {
     const fetchClips = await fetch(endpointClips, {headers})
     const clips = await fetchClips.json()
 
+    console.log(clips);
+
     clips.data.sort((a, b) => {
         return b.view_count - a.view_count
     })
-
-    console.log(clips);
+   
 
     return await clips
 }
@@ -50,8 +51,8 @@ function getLastDay () {
     let month = (lastDay.getMonth() + 1)
     let year = lastDay.getFullYear()
 
-    day = day < 10 && `0${day}`
-    month = month < 10 && `0${month}`
+    day = day < 10 ? `0${day}` : day
+    month = month < 10 ? `0${month}` : month
 
     const finalDate = `${year}-${month}-${day}`
 
